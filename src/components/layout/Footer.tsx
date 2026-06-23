@@ -1,69 +1,53 @@
 import Link from "next/link";
+import Container from "../ui/Container";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white mt-20">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-3 gap-10">
-
+    <footer className="bg-[#03173D] text-white">
+      <Container>
+        <div className="py-16 grid md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-xl font-semibold mb-4">
-              Parnik International Trading
+            <h3 className="text-2xl font-bold mb-4">
+              PARNIK
             </h3>
 
             <p className="text-slate-300 leading-relaxed">
-              Reliable sourcing, international procurement,
-              industrial products, raw materials and global
-              business development solutions.
+              Global sourcing, procurement and international
+              trade solutions for industrial and commercial
+              sectors.
             </p>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-4">
+            <h4 className="font-semibold mb-4">
               Quick Links
-            </h3>
+            </h4>
 
-            <ul className="space-y-2 text-slate-300">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-
-              <li>
-                <Link href="/about">About Us</Link>
-              </li>
-
-              <li>
-                <Link href="/services">Services</Link>
-              </li>
-
-              <li>
-                <Link href="/products">Products</Link>
-              </li>
-
-              <li>
-                <Link href="/contact">Contact</Link>
-              </li>
-            </ul>
+            <div className="flex flex-col gap-3">
+              <Link href="/">Home</Link>
+              <Link href="/about">About</Link>
+              <Link href="/services">Services</Link>
+              <Link href="/products">Products</Link>
+              <Link href="/contact">Contact</Link>
+            </div>
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold mb-4">
+            <h4 className="font-semibold mb-4">
               Contact
-            </h3>
+            </h4>
 
-            <div className="space-y-2 text-slate-300">
+            <div className="space-y-3 text-slate-300">
               <p>contact@parnikintl.com</p>
               <p>www.parnikintl.com</p>
             </div>
           </div>
-
         </div>
 
-        <div className="border-t border-slate-700 mt-10 pt-6 text-center text-slate-400">
-          © {new Date().getFullYear()} Parnik International Trading.
-          All Rights Reserved.
+        <div className="border-t border-white/10 py-6 text-center text-slate-400">
+          © {new Date().getFullYear()} PARNIK. All Rights Reserved.
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

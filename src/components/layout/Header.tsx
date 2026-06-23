@@ -3,53 +3,79 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Products", href: "/products" },
+  { name: "Global Network", href: "/global-network" },
+  { name: "Contact", href: "/contact" },
+];
+
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="h-20 flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center"
+          >
             <Image
               src="/logo/logo.png"
-              alt="Parnik International Trading"
-              width={180}
+              alt="PARNIK"
+              width={170}
               height={60}
               priority
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="hover:text-blue-700">
-              Home
-            </Link>
-
-            <Link href="/about" className="hover:text-blue-700">
-              About
-            </Link>
-
-            <Link href="/services" className="hover:text-blue-700">
-              Services
-            </Link>
-
-            <Link href="/products" className="hover:text-blue-700">
-              Products
-            </Link>
-
-            <Link href="/global-network" className="hover:text-blue-700">
-              Global Network
-            </Link>
-
-            <Link href="/contact" className="hover:text-blue-700">
-              Contact
-            </Link>
+          <nav className="hidden lg:flex items-center gap-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="
+                  text-slate-700
+                  font-medium
+                  transition
+                  hover:text-[#C9A227]
+                "
+              >
+                {item.name}
+              </Link>
+            ))}
           </nav>
 
-          <Link
-            href="/contact"
-            className="bg-blue-900 text-white px-5 py-2 rounded-lg hover:bg-blue-800"
-          >
-            Contact Us
-          </Link>
+          <div className="flex items-center gap-4">
+            <a
+              href="mailto:contact@parnikintl.com"
+              className="
+                hidden xl:block
+                text-sm
+                text-slate-600
+              "
+            >
+              contact@parnikintl.com
+            </a>
+
+            <Link
+              href="/contact"
+              className="
+                bg-[#03173D]
+                text-white
+                px-6
+                py-3
+                rounded-xl
+                font-medium
+                transition
+                hover:bg-[#05245d]
+                hover:-translate-y-0.5
+              "
+            >
+              Send Inquiry
+            </Link>
+          </div>
         </div>
       </div>
     </header>
